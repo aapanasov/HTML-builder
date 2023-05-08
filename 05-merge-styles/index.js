@@ -7,7 +7,7 @@ const mergeSyles = async (src, bundle) => {
   try {
     const files = await fs.readdir(src);
 
-    for (const file of files){
+    for (const file of files) {
       const filePath = path.join(src, file);
       const fileStat = await fs.stat(filePath);
 
@@ -26,6 +26,6 @@ const mergeSyles = async (src, bundle) => {
 };
 
 const src = path.join(__dirname, 'styles');
-const bundle = path.join(__dirname,'project-dist', 'bundle.css');
+const bundle = path.join(__dirname, 'project-dist', 'bundle.css');
 
 mergeSyles(src, bundle);

@@ -5,9 +5,9 @@ const getFiles = async (folder) => {
   const filesInFolder = [];
 
   try {
-    const files = await fs.readdir(folder, {withFileTypes: false});
+    const files = await fs.readdir(folder, { withFileTypes: false });
 
-    files.forEach( file => {
+    files.forEach(file => {
       const filePath = path.join(folder, file);
       filesInFolder.push(filePath);
     });
@@ -21,12 +21,12 @@ const getFiles = async (folder) => {
 
 
 const copyDir = async (src, dest) => {
-  await fs.mkdir(dest, {recursive: true});
+  await fs.mkdir(dest, { recursive: true });
   const destFiles = await getFiles(dest);
 
   destFiles.forEach(async file => {
     try {
-      await fs.rm(file, {recursive: true});
+      await fs.rm(file, { recursive: true });
     } catch {
       console.log(`Can't remove file:  ${file}`);
     }

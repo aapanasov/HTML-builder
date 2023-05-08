@@ -1,4 +1,4 @@
-const fs  = require('fs/promises');
+const fs = require('fs/promises');
 const path = require('path');
 
 const folder = path.join(__dirname, 'secret-folder');
@@ -11,9 +11,9 @@ const getFiles = async () => {
       const filePath = path.join(folder, file);
       const fileStat = await fs.stat(filePath);
 
-      if(fileStat.isFile()){
+      if (fileStat.isFile()) {
         const name = path.parse(filePath).name;
-        console.log(`${name} - ${path.extname(filePath).slice(1)} - ${fileStat.size/1000}kb` );
+        console.log(`${name} - ${path.extname(filePath).slice(1)} - ${fileStat.size / 1000}kb`);
       }
     });
 
